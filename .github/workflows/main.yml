@@ -8,7 +8,9 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
     steps:
-      - uses: actions/setup-deno@v2.3.0
+      - uses: denoland/setup-deno@main
+        with:
+          deno-version: "1.9.2"
       - uses: actions/checkout@v2
       - name: build
         run: |
