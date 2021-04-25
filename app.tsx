@@ -5,6 +5,8 @@ export default function App({ Page, pageProps }: { Page: ComponentType<any>, pag
   return (
     <>
       <head>
+        <title>Alfredo Salzillo</title>
+        <meta name="description" content="Alfredo Salzillo personal website" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <main>
