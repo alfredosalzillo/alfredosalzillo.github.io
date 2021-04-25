@@ -1,0 +1,22 @@
+name: CI/CD
+on: [ push, pull_request ]
+jobs:
+  deploy:
+    name: Deploy to Github Pages
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+    steps:
+      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          npm install
+          npm run render-to-file
+          npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages
+          folder: dist

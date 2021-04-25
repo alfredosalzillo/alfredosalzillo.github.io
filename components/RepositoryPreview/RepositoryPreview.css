@@ -1,0 +1,35 @@
+.RepositoryPreview--root {
+    padding: 16px;
+    border: 1px solid #dfe2e5;
+    margin: 4px 0;
+}
+
+.RepositoryPreview--title {
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 1.4em;
+    margin: 0 0 0.5em;
+    display: inline-flex;
+    justify-items: center;
+    width: 100%;
+}
+
+.RepositoryPreview--title > * {
+    margin-left: 4px;
+}
+
+.RepositoryPreview--title a {
+    text-decoration: none;
+}
+.RepositoryPreview--title a:last-child {
+    font-weight: 600;
+}
+.RepositoryPreview--title img {
+    width: 1.40em;
+    display: inline-block;
+    left: 0;
+    margin: 0;
+    vertical-align: -0.18em;
+}
+
+
