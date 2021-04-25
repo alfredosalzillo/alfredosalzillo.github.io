@@ -8,13 +8,11 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-deno@v2.3.0
       - uses: actions/checkout@v2
       - name: build
         run: |
-          npm install
-          npm run render-to-file
-          npm run build
+          deno install --unstable -A -f -n aleph https://deno.land/x/aleph@v0.3.0-alpha.31/cli.ts
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
