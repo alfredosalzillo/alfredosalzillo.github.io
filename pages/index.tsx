@@ -1,13 +1,11 @@
 import React from 'react'
-import {
-  Linkedin,
-  Twitter,
-  Github,
-} from 'grommet-icons';
 import { useData } from '../lib/use-data.ts';
 import RepositoryPreview from '../components/RepositoryPreview/RepositoryPreview.tsx';
 import ArticlePreview from '../components/ArticlePreview/ArticlePreview.tsx';
 import { getFlagEmoji } from '../lib/flag-emoji.ts';
+import Linkedin from '../components/icons/Linkedin.tsx';
+import Twitter from '../components/icons/Twitter.tsx';
+import Github from '../components/icons/Github.tsx';
 
 export default function Home() {
   const { articles, repositories } = useData()
