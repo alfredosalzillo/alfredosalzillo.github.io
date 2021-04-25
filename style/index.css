@@ -93,3 +93,7 @@ footer a svg {
   width: 24px;
   height: 24px;
 }
+
+section *:not(h2, :last-child) {
+  margin-bottom: 8px;
+}
