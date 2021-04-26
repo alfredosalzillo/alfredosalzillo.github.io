@@ -4,3 +4,5 @@ Thumbs.db
 dist/
 
 .idea
+
+.env

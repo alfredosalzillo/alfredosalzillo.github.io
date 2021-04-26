@@ -17,6 +17,8 @@ jobs:
           deno-version: "1.9.2"
       - uses: actions/checkout@v2
       - name: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           deno install --unstable -A -f -n aleph https://deno.land/x/aleph@v0.3.0-alpha.31/cli.ts
           export PATH="/home/runner/.deno/bin:$PATH"
