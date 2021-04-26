@@ -39,24 +39,34 @@
     font-size: 0.9em;
     display: flex;
     justify-items: center;
-    color: rgb(88, 166, 255);
+    align-content: center;
+    line-height: 24px;
     max-width: 100%;
-    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    color: #dfe2e5;
 }
 .ArticlePreview--breadcrumbs > * {
     margin-left: 4px;
-    color: rgb(88, 166, 255);
 }
 .ArticlePreview--breadcrumbs a {
+    white-space: nowrap;
     text-decoration: none;
+    text-overflow: ellipsis;
+    color: rgb(88, 166, 255);
 }
 .ArticlePreview--breadcrumbs a:last-child {
     font-weight: 600;
 }
 .ArticlePreview--breadcrumbs img {
-    width: 2em;
+    width: 24px;
+    height: 24px;
     display: inline-block;
     left: 0;
     margin: 0;
     vertical-align: -0.18em;
+}
+
+.ArticlePreview--breadcrumbs:after {
+
 }
