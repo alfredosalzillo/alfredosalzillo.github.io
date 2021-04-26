@@ -1,0 +1,19 @@
+query AllPinnedRepositories($owner: String!) {
+    user(login: $owner) {
+        pinnedItems(first: 10) {
+            nodes {
+                ... on Repository {
+                    name
+                    nameWithOwner
+                    description
+                    url
+                    owner {
+                        login
+                        avatarUrl
+                        url
+                    }
+                }
+            }
+        }
+    }
+}

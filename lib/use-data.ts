@@ -1,8 +1,7 @@
 import { useDeno } from 'framework/react';
-import { query as githubQuery, allPinnedRepositoryQuery } from './github.ts';
 import { getArticle } from './dev-to.ts';
-import { useEnv } from './use-env.ts';
-import type { PinnedRepositoryQueryResponse } from './github.ts';
+import allPinnedRepositories  from '../data/github.graphql'
+import type { PinnedRepositoryQueryResponse }  from '../data/github.graphql.ts'
 
 type Repository = {
   url: string,
@@ -15,7 +14,7 @@ type Repository = {
     href: string,
   },
 }
-const getGithubPinnedRepositoryData =  async (token: string): Promise<Repository[]> => {
+const getGithubPinnedRepositoryData =  async (): Promise<Repository[]> => {
   const {
     data: {
       user: {
@@ -24,9 +23,7 @@ const getGithubPinnedRepositoryData =  async (token: string): Promise<Repository
         }
       }
     }
-  } = await githubQuery<PinnedRepositoryQueryResponse>(allPinnedRepositoryQuery({
-    owner: 'alfredosalzillo',
-  }), token) as PinnedRepositoryQueryResponse
+  } = (allPinnedRepositories as PinnedRepositoryQueryResponse)
   return repositories.map((repository) => ({
     icon: '/icons/github_badge.svg',
     url: repository.url,
@@ -84,14 +81,13 @@ type Data = {
   repositories: Repository[],
 }
 export const useData = (): Data => {
-  const { GITHUB_TOKEN } = useEnv()
   return useDeno(async () => {
     const articles = await Promise.all([
       getDevToArticleData('https://dev.to/alfredosalzillo/the-react-context-hell-7p4'),
       getDevToArticleData('https://dev.to/alfredosalzillo/styled-web-components-45ph'),
       getDevToArticleData('https://dev.to/alfredosalzillo/react-like-hooks-for-flutter-implementation-4cjm'),
     ])
-    const repositories = await getGithubPinnedRepositoryData(GITHUB_TOKEN)
+    const repositories = await getGithubPinnedRepositoryData()
     return {
       articles,
       repositories,
