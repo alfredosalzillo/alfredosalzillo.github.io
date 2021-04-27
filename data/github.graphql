@@ -12,6 +12,12 @@ query AllPinnedRepositories($owner: String!) {
                         avatarUrl
                         url
                     }
+                    languages(first: 10) {
+                        nodes {
+                            name
+                            color
+                        }
+                    }
                 }
             }
         }

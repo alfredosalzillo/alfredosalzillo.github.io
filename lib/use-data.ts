@@ -12,6 +12,10 @@ type Repository = {
     name: string,
     href: string,
   },
+  languages: Array<{
+    name: string,
+    color: string,
+  }>
 }
 const getGithubPinnedRepositoryData =  async (): Promise<Repository[]> => {
   const {
@@ -32,7 +36,8 @@ const getGithubPinnedRepositoryData =  async (): Promise<Repository[]> => {
     owner: {
       name: repository.owner.login,
       href: repository.owner.url,
-    }
+    },
+    languages: repository.languages.nodes,
   }))
 }
 

@@ -34,4 +34,23 @@
     vertical-align: -0.18em;
 }
 
-
+.RepositoryPreview--tags {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: fit-content(100%);
+    grid-column-gap: 12px;
+    margin-top: 4px;
+}
+.RepositoryPreview--tag {
+    font-size: 12px;
+    line-height: 12px;
+}
+.RepositoryPreview--tag-dot {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+}

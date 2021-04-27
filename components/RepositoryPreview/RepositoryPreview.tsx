@@ -1,6 +1,10 @@
 import React from 'react'
 import './RepositoryPreview.css'
 
+type Language = {
+  name: string,
+  color: string,
+}
 type RepositoryPreviewProps = {
   icon: string,
   name: string,
@@ -10,6 +14,7 @@ type RepositoryPreviewProps = {
     name: string,
     href: string,
   },
+  languages: Language[],
 }
 const RepositoryPreview = (props: RepositoryPreviewProps) => {
   const {
@@ -17,7 +22,8 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
     name,
     href,
     owner,
-    description
+    description,
+    languages = [],
   } = props
   return (
     <section className="RepositoryPreview--root">
@@ -34,6 +40,20 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
       <p>
         {description}
       </p>
+      <div className="RepositoryPreview--tags">
+        {languages.map((language) => (
+          <span key={language.name} className="RepositoryPreview--tag">
+            <span
+              className="RepositoryPreview--tag-dot"
+              style={{
+                background: language.color,
+              }}
+            />
+            {' '}
+            {language.name}
+        </span>
+        ))}
+      </div>
     </section>
   )
 }

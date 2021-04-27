@@ -10,12 +10,18 @@ export type AllPinnedRepositories = {
           owner: {
             login: string,
             avatarUrl: string,
-            url: string
-          }
-        }[]
-      }
-    }
-  }
+            url: string,
+          },
+          languages: {
+            nodes: {
+              name: string,
+              color: string,
+            }[],
+          },
+        }[],
+      },
+    },
+  },
 }
 
 declare const data: AllPinnedRepositories
