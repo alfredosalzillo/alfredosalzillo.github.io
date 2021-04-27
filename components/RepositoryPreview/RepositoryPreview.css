@@ -18,8 +18,9 @@
     margin-left: 4px;
 }
 
-.RepositoryPreview--title a {
+.RepositoryPreview--title a, .RepositoryPreview--title a:visited {
     text-decoration: none;
+    color: rgb(3, 102, 214);
 }
 .RepositoryPreview--title a:last-child {
     font-weight: 600;
