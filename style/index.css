@@ -74,8 +74,9 @@ p {
   margin-bottom: 10px;
 }
 
-a {
+a, a:visited {
   text-decoration: none;
+  color: rgb(3, 102, 214);
 }
 
 footer {
