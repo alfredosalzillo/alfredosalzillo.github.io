@@ -2,7 +2,9 @@
   "compilerOptions": {
     "jsx": "react",
     "strictNullChecks": false,
-    "types": ["types.d.ts"],
+    "types": ["types.d.ts", "./data/*.d.ts"],
+    "suppressImplicitAnyIndexErrors": false,
+    "noImplicitAny": false,
     "plugins": [
       {
         "name": "typescript-deno-plugin",

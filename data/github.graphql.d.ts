@@ -1,4 +1,4 @@
-export type PinnedRepositoryQueryResponse = {
+export type AllPinnedRepositories = {
   data: {
     user: {
       pinnedItems: {
@@ -17,3 +17,6 @@ export type PinnedRepositoryQueryResponse = {
     }
   }
 }
+
+declare const data: AllPinnedRepositories
+export default data

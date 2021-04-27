@@ -1,7 +1,6 @@
 import { useDeno } from 'framework/react';
 import { getArticle } from './dev-to.ts';
 import allPinnedRepositories  from '../data/github.graphql'
-import type { PinnedRepositoryQueryResponse }  from '../data/github.graphql.ts'
 
 type Repository = {
   url: string,
@@ -23,7 +22,7 @@ const getGithubPinnedRepositoryData =  async (): Promise<Repository[]> => {
         }
       }
     }
-  } = (allPinnedRepositories as PinnedRepositoryQueryResponse)
+  } = allPinnedRepositories
   return repositories.map((repository) => ({
     icon: '/icons/github_badge.svg',
     url: repository.url,
