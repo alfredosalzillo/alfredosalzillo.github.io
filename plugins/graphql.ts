@@ -1,4 +1,4 @@
-import type { LoaderPlugin } from 'https://deno.land/x/aleph@v0.3.0-alpha.31/types.ts';
+import type { LoaderPlugin } from 'https://deno.land/x/aleph@v0.3.0-alpha.32/types.ts';
 
 export type GraphqlPluginOptions = {
   test?: LoaderPlugin['test'],
@@ -21,10 +21,17 @@ const graphqlPlugin = (options: GraphqlPluginOptions = {}): LoaderPlugin => {
     type: 'loader',
     test: /\.graphql$/i,
     acceptHMR: true,
-    // @ts-ignore
-    transform: async (input, app) => {
-      const { url, content } = input
-      const query = new TextDecoder().decode(content)
+    resolve: (url) => {
+      const content = Deno.readTextFileSync(`${Deno.cwd()}${url}`)
+      return {
+        url,
+        data: content,
+        external: false,
+      }
+    },
+    load: async (input, app) => {
+      const { url, data } = input
+      const query = data
       const result = await fetch(endpoint, {
         method: 'POST',
         headers: headers,
