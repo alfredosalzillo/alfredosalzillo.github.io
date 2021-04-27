@@ -41,11 +41,11 @@ const ArticlePreview = (props: ArticlePreviewProps) => {
         </p>
         <p className="ArticlePreview--breadcrumbs">
           <img src={icon} alt="icon" />
-          <a href={user.href}>
+          <a href={user.href} target="_blank">
             {user.username}
           </a>
           <span>/</span>
-          <a href={href}>
+          <a href={href} target="_blank">
             {slug}
           </a>
         </p>
