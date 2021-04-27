@@ -24,6 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export PATH="/home/runner/.deno/bin:$PATH"
+          mkdir dist
           aleph build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
