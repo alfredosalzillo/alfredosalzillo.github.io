@@ -2,6 +2,7 @@ import React from 'react'
 import { useData } from '../lib/use-data.ts';
 import RepositoryPreview from '../components/RepositoryPreview/RepositoryPreview.tsx';
 import ArticlePreview from '../components/ArticlePreview/ArticlePreview.tsx';
+import ProfileCard from '../components/ProfileCard/ProfileCard.tsx';
 import Linkedin from '../icons/Linkedin.tsx';
 import Twitter from '../icons/Twitter.tsx';
 import Github from '../icons/Github.tsx';
@@ -11,27 +12,10 @@ export default function Home() {
   return (
     <div className="page">
       <h1>Alfredo Salzillo</h1>
-      <p>
-        🌎 Caserta  🇮🇹
-        <br />
-        🎂 1993/12/27
-        <br />
-        💻
-        {' '}
-        <strong>Web Developer</strong>
-        {' '}
-        at
-        {' '}
-        <a href="https://www.togetherprice.com" target="_blank">
-          <strong>
-            Together Price
-          </strong>
-        </a>
-        <br />
-        👍
-        {' '}
-        <a href="/assets/resume.pdf"><strong>resume</strong></a>
-      </p>
+      <section>
+        <h2>Author</h2>
+        <ProfileCard />
+      </section>
       <section>
         <h2>Articles</h2>
         {articles.map((article) => (

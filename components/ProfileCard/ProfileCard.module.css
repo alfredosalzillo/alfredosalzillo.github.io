@@ -1,0 +1,50 @@
+.root {
+    display: grid;
+    grid-template-columns: 120px auto;
+    grid-column-gap: 12px;
+    align-items: start;
+    padding: 4px;
+}
+
+.picture-container {
+    padding: 10px;
+    position: relative;
+}
+.picture-container::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: " ";
+    display: block;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: hsl(227, 96%, 92%);
+}
+.picture-container img {
+    border-radius: 50%;
+    border: 1px solid #333333;
+}
+.title {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.info {
+    font-size: 15px;
+}
+
+.links {
+
+}
+
+.links a {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.links .icon {
+    height: 24px;
+}
