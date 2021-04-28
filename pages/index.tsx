@@ -2,7 +2,6 @@ import React from 'react'
 import { useData } from '../lib/use-data.ts';
 import RepositoryPreview from '../components/RepositoryPreview/RepositoryPreview.tsx';
 import ArticlePreview from '../components/ArticlePreview/ArticlePreview.tsx';
-import { getFlagEmoji } from '../lib/flag-emoji.ts';
 import Linkedin from '../icons/Linkedin.tsx';
 import Twitter from '../icons/Twitter.tsx';
 import Github from '../icons/Github.tsx';
@@ -13,9 +12,7 @@ export default function Home() {
     <div className="page">
       <h1>Alfredo Salzillo</h1>
       <p>
-        🌎 Caserta
-        {' '}
-        {getFlagEmoji('IT')}
+        🌎 Caserta  🇮🇹
         <br />
         🎂 1993/12/27
         <br />
