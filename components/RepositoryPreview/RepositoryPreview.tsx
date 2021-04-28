@@ -27,7 +27,7 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
   } = props
   return (
     <section className={classes.root}>
-      <h2 className={classes.title}>
+      <h3 className={classes.title}>
         <img alt="logo" src={icon} />
         <a href={owner.href} target="_blank">
           {owner.name}
@@ -36,7 +36,7 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
         <a href={href} target="_blank">
           {name}
         </a>
-      </h2>
+      </h3>
       <p>
         {description}
       </p>
