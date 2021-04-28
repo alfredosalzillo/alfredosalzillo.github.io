@@ -26,7 +26,7 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
     languages = [],
   } = props
   return (
-    <section className={classes.root}>
+    <article className={classes.root}>
       <h3 className={classes.title}>
         <img alt="logo" src={icon} />
         <a href={owner.href} target="_blank">
@@ -54,7 +54,7 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
         </span>
         ))}
       </div>
-    </section>
+    </article>
   )
 }
 
