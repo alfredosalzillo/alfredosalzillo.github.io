@@ -6,12 +6,13 @@ import ProfileCard from '../components/ProfileCard/ProfileCard.tsx';
 import Linkedin from '../icons/Linkedin.tsx';
 import Twitter from '../icons/Twitter.tsx';
 import Github from '../icons/Github.tsx';
+import Header from '../components/Header/Header.tsx';
 
 export default function Home() {
   const { articles, repositories } = useData()
   return (
     <div className="page">
-      <h1>Alfredo Salzillo</h1>
+      <Header />
       <section>
         <h2>Author</h2>
         <ProfileCard />

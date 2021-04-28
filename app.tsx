@@ -5,8 +5,9 @@ export default function App({ Page, pageProps }: { Page: ComponentType<any>, pag
   return (
     <>
       <head>
-        <title>Alfredo Salzillo</title>
-        <meta name="description" content="Alfredo Salzillo personal website" />
+        <title>A Wolf in Dev</title>
+        <meta name="description" content="A developer personal website" />
+        <meta name="author" content="Alfredo Salzillo" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg" href="/favicon.svg"/>
         <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js" />
