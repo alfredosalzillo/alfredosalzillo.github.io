@@ -1,8 +1,6 @@
 import React from 'react'
 import classes from './RepositoryPreview.module.css'
 
-console.log(classes)
-
 type Language = {
   name: string,
   color: string,
