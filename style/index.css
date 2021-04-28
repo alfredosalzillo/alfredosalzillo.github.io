@@ -23,7 +23,7 @@ main {
   margin: auto;
 }
 
-.page {
+main > div:first-child {
   padding: 0 16px;
 }
 

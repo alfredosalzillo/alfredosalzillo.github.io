@@ -1,4 +1,4 @@
-.ArticlePreview--root {
+.root {
     width: 100%;
     background-size: cover;
     background: #24292e no-repeat center center;
@@ -8,7 +8,7 @@
     position: relative;
     margin: 0;
 }
-.ArticlePreview--content {
+.content {
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -18,7 +18,7 @@
     border-radius: 4px;
     padding: 0;
 }
-.ArticlePreview--title {
+.title {
     border: 0;
     color: white;
     font-weight: 600;
@@ -26,7 +26,7 @@
     line-height: 1.4em;
     padding-left: 16px;
 }
-.ArticlePreview--description {
+.description {
     border: 0;
     color: white;
     font-weight: 400;
@@ -34,7 +34,7 @@
     line-height: 1.4em;
     padding: 0 16px;
 }
-.ArticlePreview--breadcrumbs {
+.breadcrumbs {
     padding: 0 16px;
     font-size: 0.9em;
     display: flex;
@@ -46,19 +46,19 @@
     overflow: hidden;
     color: #dfe2e5;
 }
-.ArticlePreview--breadcrumbs > * {
+.breadcrumbs > * {
     margin-left: 4px;
 }
-.ArticlePreview--breadcrumbs a {
+.breadcrumbs a {
     white-space: nowrap;
     text-decoration: none;
     text-overflow: ellipsis;
     color: rgb(88, 166, 255);
 }
-.ArticlePreview--breadcrumbs a:last-child {
+.breadcrumbs a:last-child {
     font-weight: 600;
 }
-.ArticlePreview--breadcrumbs img {
+.breadcrumbs img {
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -67,6 +67,6 @@
     vertical-align: -0.18em;
 }
 
-.ArticlePreview--breadcrumbs:after {
+.breadcrumbs:after {
 
 }

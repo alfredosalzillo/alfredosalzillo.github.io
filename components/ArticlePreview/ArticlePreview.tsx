@@ -1,6 +1,6 @@
 import React from 'react'
-import './ArticlePreview.css'
-
+// import './ArticlePreview.css'
+import classes from './ArticlePreview.module.css'
 type ArticlePreviewProps = {
   url: string,
   icon: string,
@@ -28,18 +28,18 @@ const ArticlePreview = (props: ArticlePreviewProps) => {
     user,
   } = props;
   return (
-    <section
-      className="ArticlePreview--root"
+    <article
+      className={classes.root}
       style={{ backgroundImage: `url(${cover})`}}
     >
-      <div className="ArticlePreview--content">
-        <h2 className="ArticlePreview--title">
+      <div className={classes.content}>
+        <h3 className={classes.title}>
           {title}
-        </h2>
-        <p className="ArticlePreview--description">
+        </h3>
+        <p className={classes.description}>
           {description}
         </p>
-        <p className="ArticlePreview--breadcrumbs">
+        <p className={classes.breadcrumbs}>
           <img src={icon} alt="icon" />
           <a href={user.href} target="_blank">
             {user.username}
@@ -50,7 +50,7 @@ const ArticlePreview = (props: ArticlePreviewProps) => {
           </a>
         </p>
       </div>
-    </section>
+    </article>
   )
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
-import './RepositoryPreview.css'
+import classes from './RepositoryPreview.module.css'
+
+console.log(classes)
 
 type Language = {
   name: string,
@@ -26,8 +28,8 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
     languages = [],
   } = props
   return (
-    <section className="RepositoryPreview--root">
-      <h2 className="RepositoryPreview--title">
+    <section className={classes.root}>
+      <h2 className={classes.title}>
         <img alt="logo" src={icon} />
         <a href={owner.href} target="_blank">
           {owner.name}
@@ -40,11 +42,11 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
       <p>
         {description}
       </p>
-      <div className="RepositoryPreview--tags">
+      <div className={classes.tags}>
         {languages.map((language) => (
-          <span key={language.name} className="RepositoryPreview--tag">
+          <span key={language.name} className={classes.tag}>
             <span
-              className="RepositoryPreview--tag-dot"
+              className={classes.tagDot}
               style={{
                 background: language.color,
               }}

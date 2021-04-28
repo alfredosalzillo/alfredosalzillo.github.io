@@ -1,10 +1,10 @@
-.RepositoryPreview--root {
+.root {
     padding: 16px;
     border: 1px solid #dfe2e5;
     margin: 4px 0;
 }
 
-.RepositoryPreview--title {
+.title {
     font-weight: 400;
     font-size: 1.3em;
     line-height: 24px;
@@ -14,18 +14,18 @@
     width: 100%;
 }
 
-.RepositoryPreview--title > * {
+.title > * {
     margin-left: 4px;
 }
 
-.RepositoryPreview--title a, .RepositoryPreview--title a:visited {
+.title a, .title a:visited {
     text-decoration: none;
     color: rgb(3, 102, 214);
 }
-.RepositoryPreview--title a:last-child {
+.title a:last-child {
     font-weight: 600;
 }
-.RepositoryPreview--title img {
+.title img {
     width: 24px;
     height: 24px;
     display: inline-block;
@@ -34,18 +34,18 @@
     vertical-align: -0.18em;
 }
 
-.RepositoryPreview--tags {
+.tags {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: fit-content(100%);
     grid-column-gap: 12px;
     margin-top: 4px;
 }
-.RepositoryPreview--tag {
+.tag {
     font-size: 12px;
     line-height: 12px;
 }
-.RepositoryPreview--tag-dot {
+.tag-dot {
     width: 12px;
     height: 12px;
     display: inline-block;
