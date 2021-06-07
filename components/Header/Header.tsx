@@ -6,7 +6,7 @@ const Header = () => (
   <header className={classes.root}>
     <Logo height="64px" />
     <h1 className={classes.title}>
-      A Wolf in Dev
+      Alfredo Salzillo
     </h1>
   </header>
 )

@@ -5,7 +5,7 @@ export default function App({ Page, pageProps }: { Page: ComponentType<any>, pag
   return (
     <>
       <head>
-        <title>A Wolf in Dev</title>
+        <title>Alfredo Salzillo</title>
         <meta name="description" content="A developer personal website" />
         <meta name="author" content="Alfredo Salzillo" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
