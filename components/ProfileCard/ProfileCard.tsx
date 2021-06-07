@@ -25,7 +25,9 @@ const ProfileCard = () => (
     <div>
       <h2 className={classes.title}>Alfredo Salzillo</h2>
       <span className={classes.info}>
-        🇮🇹  · 27 December 1993 · Developer at <a href="https://www.togetherprice.com" target="_blank">
+        🇮🇹  · 27 December 1993 · Developer at
+        {' '}
+        <a href="https://www.togetherprice.com" target="_blank">
           <strong>
             Together Price
           </strong>
@@ -33,6 +35,13 @@ const ProfileCard = () => (
       </span>
       <p>
         An Italian web developer, open source enthusiast.
+      </p>
+      <p>
+        <a href="https://alfredosalzillo.me/resume/" target="_blank">
+          <strong>
+            resume
+          </strong>
+        </a>
       </p>
       <div className={classes.links}>
         <a href="https://www.linkedin.com/in/alfredosalzillo/" target="_blank">
