@@ -14,10 +14,10 @@ jobs:
     steps:
       - uses: denoland/setup-deno@main
         with:
-          deno-version: "1.9.2"
+          deno-version: "1.10.3"
       - name: install aleph
         run: |
-          deno install --unstable -A -f -n aleph https://deno.land/x/aleph@v0.3.0-alpha.32/cli.ts
+          deno install --unstable -A -f -n aleph https://deno.land/x/aleph@v0.3.0-alpha.33/cli.ts
       - uses: actions/checkout@v2
       - name: build
         env:
