@@ -87,6 +87,7 @@ type Data = {
 export const useData = (): Data => {
   return useDeno(async () => {
     const articles = await Promise.all([
+      getDevToArticleData('https://dev.to/alfredosalzillo/a-game-of-blobs-dead-or-alive-2alj'),
       getDevToArticleData('https://dev.to/alfredosalzillo/the-only-thing-you-need-is-reduce-318a'),
       getDevToArticleData('https://dev.to/alfredosalzillo/the-react-context-hell-7p4'),
       getDevToArticleData('https://dev.to/alfredosalzillo/styled-web-components-45ph'),
