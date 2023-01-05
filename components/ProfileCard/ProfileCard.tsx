@@ -27,9 +27,9 @@ const ProfileCard = () => (
       <span className={classes.info}>
         🇮🇹  · 27 December 1993 · Developer at
         {' '}
-        <a href="https://www.togetherprice.com" target="_blank">
+        <a href="https://www.treedom.net" target="_blank">
           <strong>
-            Together Price
+            Treedom
           </strong>
         </a>
       </span>
