@@ -17,10 +17,6 @@ const {
 } = Deno.env.toObject()
 
 serve({
-  build: {
-    ssg: true,
-
-  },
   loaders: [
     new GraphQlLoader({
       endpoint: 'https://api.github.com/graphql',
@@ -41,5 +37,5 @@ serve({
   router: {
     glob: "./routes/**/*.{tsx,mdx,md}",
   },
-  ssr: true,
+  ssr: true
 });
