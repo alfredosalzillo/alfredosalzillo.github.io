@@ -1,7 +1,8 @@
 name: CI/CD
 on:
   push:
-  pull_request:
+    branches:
+      - main
   schedule:
   - cron: '0 0 * * *'
 jobs:
@@ -14,18 +15,14 @@ jobs:
     steps:
       - uses: denoland/setup-deno@main
         with:
-          deno-version: "1.10.3"
-      - name: install aleph
-        run: |
-          deno install --unstable -A -f -n aleph https://deno.land/x/aleph@v0.3.0-alpha.33/cli.ts
+          deno-version: "1.28.3"
       - uses: actions/checkout@v2
       - name: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export PATH="/home/runner/.deno/bin:$PATH"
-          mkdir dist
-          aleph build
+          deno task generate
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:

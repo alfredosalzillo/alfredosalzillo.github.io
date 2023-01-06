@@ -1,5 +1,5 @@
 import React from 'react'
-// import './ArticlePreview.css'
+
 import classes from './ArticlePreview.module.css'
 type ArticlePreviewProps = {
   url: string,

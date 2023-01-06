@@ -8,7 +8,7 @@ import Dev from '../../icons/Dev.tsx';
 const ProfilePicture = () => (
   <img
     alt="Alfredo Salzillo profile photo"
-    src="/profile-picture.jpg"
+    src="/assets/profile-picture.jpg"
     style={{
       objectFit: 'cover'
     }}
