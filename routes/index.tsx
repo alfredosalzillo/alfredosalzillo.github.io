@@ -1,5 +1,6 @@
 import React from 'react'
-import { useData } from '../lib/use-data.ts';
+import { getData, Data } from '../lib/use-data.ts';
+import { useData } from 'aleph/react'
 import RepositoryPreview from '../components/RepositoryPreview/RepositoryPreview.tsx';
 import ArticlePreview from '../components/ArticlePreview/ArticlePreview.tsx';
 import ProfileCard from '../components/ProfileCard/ProfileCard.tsx';
@@ -8,8 +9,12 @@ import Twitter from '../icons/Twitter.tsx';
 import Github from '../icons/Github.tsx';
 import Header from '../components/Header/Header.tsx';
 
+export const data = {
+  get: getData,
+}
+
 export default function Home() {
-  const { articles, repositories } = useData()
+  const { data: { articles, repositories } } = useData<Data>()
   return (
     <div className="page">
       <Header />

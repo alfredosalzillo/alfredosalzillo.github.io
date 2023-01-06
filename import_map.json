@@ -1,11 +1,20 @@
 {
   "imports": {
     "~/": "./",
-    "aleph/": "https://deno.land/x/aleph@v0.3.0-alpha.33/",
-    "framework": "https://deno.land/x/aleph@v0.3.0-alpha.33/framework/core/mod.ts",
-    "framework/react": "https://deno.land/x/aleph@v0.3.0-alpha.33/framework/react/mod.ts",
-    "react": "https://esm.sh/react@17.0.2",
-    "react-dom": "https://esm.sh/react-dom@17.0.2"
+    "std/": "https://deno.land/std@0.155.0/",
+    "aleph/": "https://deno.land/x/aleph@1.0.0-beta.21/",
+    "aleph/server": "https://deno.land/x/aleph@1.0.0-beta.21/server/mod.ts",
+    "aleph/dev": "https://deno.land/x/aleph@1.0.0-beta.21/server/dev.ts",
+    "aleph/react/mdx-loader": "https://deno.land/x/aleph@1.0.0-beta.21/runtime/react/mdx-loader.ts",
+    "@mdx-js/react": "https://esm.sh/@mdx-js/react@2.1.3",
+    "aleph/react": "https://deno.land/x/aleph@1.0.0-beta.21/runtime/react/mod.ts",
+    "aleph/react-client": "https://deno.land/x/aleph@1.0.0-beta.21/runtime/react/client.ts",
+    "aleph/react-server": "https://deno.land/x/aleph@1.0.0-beta.21/runtime/react/server.ts",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "postcss": "https://deno.land/x/postcss/mod.js",
+    "autoprefixer": "https://jspm.dev/autoprefixer"
   },
   "scopes": {}
 }
