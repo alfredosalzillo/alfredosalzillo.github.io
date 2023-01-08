@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "strictNullChecks": false,
-    "types": ["types.d.ts", "./data/*.d.ts"],
+    "types": ["types.d.ts", "./data/*.d.ts", "./plugins/scss-loader/types.d.ts"],
     "suppressImplicitAnyIndexErrors": false,
     "noImplicitAny": false,
     "plugins": [
