@@ -24,7 +24,7 @@ export type CssModuleLoaderOptions = {
 
 }
 
-export class CssModuleLoader implements ModuleLoader {
+export class ScssLoader implements ModuleLoader {
   #options: CssModuleLoaderOptions;
 
   constructor(options: CssModuleLoaderOptions) {
