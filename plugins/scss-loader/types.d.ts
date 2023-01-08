@@ -13,3 +13,13 @@ declare module '*.module.scss' {
   const classNames: ClassNames
   export default classNames
 }
+
+declare module '*.css' {
+  const defaultExport: never
+  export default defaultExport
+}
+
+declare module '*.scss' {
+  const defaultExport: never
+  export default defaultExport
+}

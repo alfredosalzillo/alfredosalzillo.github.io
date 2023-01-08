@@ -25,6 +25,9 @@ const extractClassNames = (css: string) => [...new Set(lex(css)
   .filter((token: any) => token.type === 'class')
   .map((token: any) => token.name as string) as string[])]
 
+const isModule = (path: string) => path.endsWith(".module.css") || path.endsWith(".module.scss")
+const isGlobalCss = (path: string) => !isModule(path) && (path.endsWith(".css") || path.endsWith(".scss"))
+
 export type CssModuleLoaderOptions = {
 
 }
@@ -37,11 +40,18 @@ export class ScssLoader implements ModuleLoader {
   }
 
   test(path: string): boolean {
-    return path.endsWith(".module.css") || path.endsWith(".module.scss");
+    return isModule(path) || isGlobalCss(path);
   }
 
   async load(specifier: string, content: string, env: ModuleLoaderEnv): Promise<ModuleLoaderOutput> {
-    const compiledCSS = sass(content).to_string('expanded') as string
+    const compiledCSS = sass(content).to_string('compressed') as string
+    if (isGlobalCss(specifier)) {
+      return {
+        code: `export default null`,
+        lang: 'ts',
+        inlineCSS: compiledCSS,
+      }
+    }
     const classNames = extractClassNames(compiledCSS)
     const uniqueClassNamesMap = classNames.reduce((acc, name) => ({
       ...acc,
