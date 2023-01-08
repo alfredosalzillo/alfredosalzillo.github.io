@@ -12,9 +12,7 @@
     "aleph/react-server": "https://deno.land/x/aleph@1.0.0-beta.21/runtime/react/server.ts",
     "react": "https://esm.sh/react@18.2.0",
     "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
-    "postcss": "https://deno.land/x/postcss/mod.js",
-    "autoprefixer": "https://jspm.dev/autoprefixer"
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/"
   },
   "scopes": {}
 }
