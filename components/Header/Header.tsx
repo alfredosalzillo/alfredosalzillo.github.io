@@ -1,14 +1,13 @@
-import React from 'react'
-import Logo from '../Logo/Logo.tsx'
-import classes from './Header.module.css'
+import React from 'react';
+import Image from 'next/image';
+import classes from './Header.module.css';
 
-const Header = () => (
-  <header className={classes.root}>
-    <Logo height="64px" />
-    <h1 className={classes.title}>
-      Alfredo Salzillo
-    </h1>
-  </header>
-)
+function Header() {
+  return (
+    <header className={classes.root}>
+      <Image width={30} height={30} src="/logo.svg" alt="logo" className={classes.logo} />
+    </header>
+  );
+}
 
-export default Header
+export default Header;

@@ -1,0 +1,24 @@
+{
+  "extends": ["airbnb", "next", "next/core-web-vitals"],
+  "rules": {
+    "react/require-default-props": 0,
+    "react/jsx-props-no-spreading": 0,
+    "no-restricted-exports": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".tsx"
+        ]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      {
+        "graphql": "always",
+        "tsx": 0
+      }
+    ]
+  }
+}
