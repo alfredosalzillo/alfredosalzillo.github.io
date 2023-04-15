@@ -21,6 +21,8 @@ jobs:
         run: |
           npm ci
           npm run build
+          # https://www.viget.com/articles/host-build-and-deploy-next-js-projects-on-github-pages/
+          touch out/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
