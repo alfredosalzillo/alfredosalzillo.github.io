@@ -7,7 +7,7 @@ import Twitter from '@/icons/Twitter';
 import Github from '@/icons/Github';
 import React from 'react';
 import { fetchData } from '@/lib/data';
-import classes from './page.module.css'
+import classes from './page.module.css';
 
 export default async function Home() {
   const { articles, repositories } = await fetchData();
