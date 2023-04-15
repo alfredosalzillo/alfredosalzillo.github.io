@@ -1,0 +1,17 @@
+.infos {
+    grid-area: infos;
+}
+.main {
+    grid-area: main;
+}
+
+@media only screen and (min-width: 768px) {
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "infos main";
+        gap: 12px;
+    }
+}
