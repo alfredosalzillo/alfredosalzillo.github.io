@@ -5,28 +5,19 @@ import classes from './ArticlePreview.module.css';
 
 type ArticlePreviewProps = {
   icon: string,
-  slug: string,
   title: string,
   cover?: string,
   href: string,
   description: string,
-  user: {
-    name: string,
-    username: string,
-    href: string,
-    profileImage: string,
-  },
 }
 
-function ArticlePreview(props: ArticlePreviewProps) {
+const ArticlePreview: React.FC<ArticlePreviewProps> = (props) => {
   const {
     href,
     icon,
     title,
-    slug,
     cover,
     description,
-    user,
   } = props;
   return (
     <article
@@ -67,6 +58,6 @@ function ArticlePreview(props: ArticlePreviewProps) {
       </div>
     </article>
   );
-}
+};
 
 export default ArticlePreview;

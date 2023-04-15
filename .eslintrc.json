@@ -1,6 +1,7 @@
 {
   "extends": ["airbnb", "next", "next/core-web-vitals"],
   "rules": {
+    "react/function-component-definition": 0,
     "react/require-default-props": 0,
     "react/jsx-props-no-spreading": 0,
     "no-restricted-exports": "off",
