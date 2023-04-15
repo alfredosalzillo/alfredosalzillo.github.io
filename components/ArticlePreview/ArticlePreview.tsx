@@ -1,57 +1,63 @@
-import React from 'react'
+import React from 'react';
 
-import classes from './ArticlePreview.module.css'
+import Image from 'next/image';
+import classes from './ArticlePreview.module.css';
+
 type ArticlePreviewProps = {
-  url: string,
   icon: string,
-  slug: string,
   title: string,
-  cover: string,
+  cover?: string,
   href: string,
   description: string,
-  user: {
-    name: string,
-    username: string,
-    href: string,
-    profileImage: string,
-  },
 }
 
-const ArticlePreview = (props: ArticlePreviewProps) => {
+const ArticlePreview: React.FC<ArticlePreviewProps> = (props) => {
   const {
     href,
     icon,
     title,
-    slug,
     cover,
     description,
-    user,
   } = props;
   return (
     <article
       className={classes.root}
-      style={{ backgroundImage: `url(${cover})`}}
     >
+      {
+        cover && (
+          <Image
+            src={cover}
+            alt={title}
+            fill
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              objectFit: 'cover',
+            }}
+          />
+        )
+      }
       <div className={classes.content}>
         <h3 className={classes.title}>
           {title}
         </h3>
         <p className={classes.description}>
           {description}
-        </p>
-        <p className={classes.breadcrumbs}>
-          <img src={icon} alt="icon" />
-          <a href={user.href} target="_blank">
-            {user.username}
-          </a>
-          <span>/</span>
+          <br />
           <a href={href} target="_blank">
-            {slug}
+            read more
           </a>
         </p>
+        <div className={classes.actions}>
+          <Image width={24} height={24} src={icon} alt="icon" />
+        </div>
+        <a href={href} target="_blank" className={classes.link}>
+          READ MORE
+        </a>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default ArticlePreview
+export default ArticlePreview;

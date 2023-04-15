@@ -1,0 +1,26 @@
+fragment PinnedRepository on Repository {
+    name
+    nameWithOwner
+    description
+    url
+    owner {
+        login
+        avatarUrl
+        url
+    }
+    languages(first: 10) {
+        nodes {
+            name
+            color
+        }
+    }
+}
+query AllPinnedRepositories($owner: String!) {
+    user(login: $owner) {
+        pinnedItems(first: 10) {
+            nodes {
+                ... PinnedRepository
+            }
+        }
+    }
+}

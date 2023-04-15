@@ -21,6 +21,9 @@
 .title a, .title a:visited {
     text-decoration: none;
     color: rgb(3, 102, 214);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .title a:last-child {
     font-weight: 600;

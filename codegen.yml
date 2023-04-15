@@ -1,0 +1,20 @@
+generates:
+  ./@types/github.ts:
+    schema:
+      - https://api.github.com/graphql:
+          headers:
+            User-Agent: node.js
+            Authorization: Bearer {{GITHUB_TOKEN}}
+    documents:
+      - ./**/*.github.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+      - fragment-matcher
+    # temporary config until graphql v2 schema
+    config:
+      avoidOptionals:
+        field: true
+        defaultValue: true
+      maybeValue: 'T'

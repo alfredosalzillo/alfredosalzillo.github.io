@@ -1,5 +1,6 @@
-import React from 'react'
-import classes from './RepositoryPreview.module.css'
+import React from 'react';
+import Image from 'next/image';
+import classes from './RepositoryPreview.module.css';
 
 type Language = {
   name: string,
@@ -16,7 +17,7 @@ type RepositoryPreviewProps = {
   },
   languages: Language[],
 }
-const RepositoryPreview = (props: RepositoryPreviewProps) => {
+function RepositoryPreview(props: RepositoryPreviewProps) {
   const {
     icon,
     name,
@@ -24,11 +25,11 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
     owner,
     description,
     languages = [],
-  } = props
+  } = props;
   return (
     <article className={classes.root}>
       <h3 className={classes.title}>
-        <img alt="logo" src={icon} />
+        <Image width={80} height={60} alt="logo" src={icon} />
         <a href={owner.href} target="_blank">
           {owner.name}
         </a>
@@ -51,11 +52,11 @@ const RepositoryPreview = (props: RepositoryPreviewProps) => {
             />
             {' '}
             {language.name}
-        </span>
+          </span>
         ))}
       </div>
     </article>
-  )
+  );
 }
 
 export default RepositoryPreview;
