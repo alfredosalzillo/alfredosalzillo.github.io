@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "me.alfredosalzillo.blobsdeadoralive.twa",
+      "sha256_cert_fingerprints": [
+        "16:CA:64:AE:7A:67:A1:4F:F7:B7:E4:01:A9:FB:70:93:63:0D:96:25:4D:67:15:5C:4D:05:15:2E:32:01:EA:22"
+      ]
+    }
+  }
+]
