@@ -23,7 +23,7 @@ function ProfileCard() {
           An Italian web developer, open source enthusiast.
         </p>
         <p>
-          <a href="https://alfredosalzillo.me/resume/" target="_blank">
+          <a href="https://alfredosalzillo.me/resume/alfredo-salzillo-resume.pdf" target="_blank">
             <strong>
               resume
             </strong>
