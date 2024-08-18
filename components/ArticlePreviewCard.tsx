@@ -51,7 +51,7 @@ const ArticlePreviewCard: React.FC<ArticlePreviewCardProps> = ({
         }}
       >
         <CardHeader
-          avatar={<Avatar src={icon} sx={{ width: 24, height: 24 }}/>}
+          avatar={<Avatar src={icon} sx={{ width: 24, height: 24 }} />}
           title={title}
         />
         <CardContent>
