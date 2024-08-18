@@ -11,6 +11,12 @@
     "generate": "graphql-codegen"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.6",
+    "@mui/material": "^5.16.6",
+    "@mui/material-nextjs": "^5.16.6",
     "@apollo/client": "^3.7.12",
     "@types/node": "18.15.11",
     "@types/react": "^18.3.3",

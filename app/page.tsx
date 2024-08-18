@@ -1,60 +1,43 @@
 import React from 'react';
-import ArticlePreview from '@/components/ArticlePreview';
-import Header from '@/components/Header';
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import ArticlePreviewCard from '@/components/ArticlePreviewCard';
 import ProfileCard from '@/components/ProfileCard';
-import RepositoryPreview from '@/components/RepositoryPreview';
-import Github from '@/icons/Github';
-import Linkedin from '@/icons/Linkedin';
-import Twitter from '@/icons/Twitter';
+import RepositoryPreviewCard from '@/components/RepositoryPreviewCard';
 import { fetchData } from '@/lib/data';
-import classes from './page.module.css';
 
 const HomePage = async () => {
   const { articles, repositories } = await fetchData();
   return (
     <main>
-      <Header />
-      <div className={classes.content}>
-        <div className={classes.infos}>
-          <section>
-            <ProfileCard />
-          </section>
-        </div>
-        <div className={classes.main}>
-          <section>
-            <h2>Articles</h2>
+      <Stack spacing={1}>
+        <ProfileCard />
+        <Container disableGutters>
+          <Typography variant="h2" mt={2} mb={3}>Articles</Typography>
+          <Stack spacing={1}>
             {articles.map((article) => (
-              <ArticlePreview
+              <ArticlePreviewCard
                 key={article.url}
                 {...article}
               />
             ))}
-          </section>
-          <section>
-            <h2>Projects</h2>
+          </Stack>
+        </Container>
+        <Container disableGutters>
+          <Typography variant="h2" mt={2} mb={3}>Projects</Typography>
+          <Stack spacing={1}>
             {repositories.map((repository) => (
-              <RepositoryPreview
+              <RepositoryPreviewCard
                 key={repository.url}
                 {...repository}
               />
             ))}
-          </section>
-        </div>
-      </div>
-      <hr />
-      <footer>
-        <a href="https://www.linkedin.com/in/alfredosalzillo/" target="_blank" rel="noreferrer">
-          <Linkedin />
-        </a>
-        <a href="https://twitter.com/noctislupo93" target="_blank" rel="noreferrer">
-          <Twitter />
-        </a>
-        <a href="https://github.com/alfredosalzillo" target="_blank" rel="noreferrer">
-          <Github />
-        </a>
-      </footer>
+          </Stack>
+        </Container>
+      </Stack>
     </main>
   );
 };
 
-export default HomePage
+export default HomePage;
