@@ -5,7 +5,7 @@ import classes from './RepositoryPreview.module.css';
 type Language = {
   name: string,
   color: string,
-}
+};
 type RepositoryPreviewProps = {
   icon: string,
   name: string,
@@ -16,7 +16,7 @@ type RepositoryPreviewProps = {
     href: string,
   },
   languages: Language[],
-}
+};
 function RepositoryPreview(props: RepositoryPreviewProps) {
   const {
     icon,
@@ -30,11 +30,11 @@ function RepositoryPreview(props: RepositoryPreviewProps) {
     <article className={classes.root}>
       <h3 className={classes.title}>
         <Image width={80} height={60} alt="logo" src={icon} />
-        <a href={owner.href} target="_blank">
+        <a href={owner.href} target="_blank" rel="noreferrer">
           {owner.name}
         </a>
         <span>/</span>
-        <a href={href} target="_blank">
+        <a href={href} target="_blank" rel="noreferrer">
           {name}
         </a>
       </h3>

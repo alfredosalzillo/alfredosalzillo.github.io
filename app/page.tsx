@@ -1,11 +1,11 @@
+import React from 'react';
+import ArticlePreview from '@/components/ArticlePreview';
 import Header from '@/components/Header';
 import ProfileCard from '@/components/ProfileCard';
-import ArticlePreview from '@/components/ArticlePreview';
 import RepositoryPreview from '@/components/RepositoryPreview';
+import Github from '@/icons/Github';
 import Linkedin from '@/icons/Linkedin';
 import Twitter from '@/icons/Twitter';
-import Github from '@/icons/Github';
-import React from 'react';
 import { fetchData } from '@/lib/data';
 import classes from './page.module.css';
 
@@ -43,13 +43,13 @@ export default async function Home() {
       </div>
       <hr />
       <footer>
-        <a href="https://www.linkedin.com/in/alfredosalzillo/" target="_blank">
+        <a href="https://www.linkedin.com/in/alfredosalzillo/" target="_blank" rel="noreferrer">
           <Linkedin />
         </a>
-        <a href="https://twitter.com/noctislupo93" target="_blank">
+        <a href="https://twitter.com/noctislupo93" target="_blank" rel="noreferrer">
           <Twitter />
         </a>
-        <a href="https://github.com/alfredosalzillo" target="_blank">
+        <a href="https://github.com/alfredosalzillo" target="_blank" rel="noreferrer">
           <Github />
         </a>
       </footer>

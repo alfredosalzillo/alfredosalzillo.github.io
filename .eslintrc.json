@@ -1,25 +1,94 @@
 {
-  "extends": ["airbnb", "next", "next/core-web-vitals"],
-  "rules": {
-    "react/function-component-definition": 0,
-    "react/require-default-props": 0,
-    "react/jsx-props-no-spreading": 0,
-    "no-restricted-exports": "off",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".tsx"
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript"
+  ],
+  "plugins": [
+    "import",
+    "mui-path-imports"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": [
+    "types.ts",
+    "next.config.js",
+    "/plugins/social-icons/*.tsx"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.tsx"
+      ],
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
+        "react/require-default-props": "off",
+        "mui-path-imports/mui-path-imports": "error",
+        "import/order": ["error", {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "pathGroups": [
+            {
+              "pattern": "react",
+              "group": "builtin",
+              "position": "before"
+            },
+            {
+              "pattern": "next/*",
+              "group": "builtin",
+              "position": "before"
+            },
+            {
+              "pattern": "next",
+              "group": "builtin",
+              "position": "before"
+            }
+          ],
+          "pathGroupsExcludedImportTypes": ["react"],
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
+        }],
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "no-restricted-exports": "off",
+        "react/prop-types": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-no-useless-fragment": "off",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+        "@typescript-eslint/no-extra-non-null-assertion": "error",
+        "@typescript-eslint/no-unnecessary-condition": 0,
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
         ]
       }
-    ],
-    "import/extensions": [
-      "error",
-      {
-        "graphql": "always",
-        "tsx": 0
+    },
+    {
+      "files": [
+        "*.js"
+      ],
+      "rules": {
+        "@typescript-eslint/naming-convention": "off"
       }
-    ]
-  }
+    }
+  ]
 }

@@ -9,7 +9,7 @@ type ArticlePreviewProps = {
   cover?: string,
   href: string,
   description: string,
-}
+};
 
 const ArticlePreview: React.FC<ArticlePreviewProps> = (props) => {
   const {
@@ -48,7 +48,7 @@ const ArticlePreview: React.FC<ArticlePreviewProps> = (props) => {
         <div className={classes.actions}>
           <Image width={24} height={24} src={icon} alt="icon" />
         </div>
-        <a href={href} target="_blank" className={classes.link}>
+        <a href={href} target="_blank" className={classes.link} rel="noreferrer">
           {title}
         </a>
       </div>

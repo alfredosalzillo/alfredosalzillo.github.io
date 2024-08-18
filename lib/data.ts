@@ -20,7 +20,7 @@ type Repository = {
     name: string,
     color: string,
   }>
-}
+};
 const fetchGithubPinnedRepositoryData = async (): Promise<Repository[]> => {
   const {
     data: {
@@ -66,7 +66,7 @@ type Article = {
     href: string,
     profileImage: string,
   },
-}
+};
 
 const isDevTo = (url: string) => /dev\.to/.test(url);
 const fetchDevToArticleData = async (url: string): Promise<Article> => {
@@ -94,7 +94,7 @@ const fetchDevToArticleData = async (url: string): Promise<Article> => {
 export type Data = {
   articles: Article[],
   repositories: Repository[],
-}
+};
 
 export const fetchData = async (): Promise<Data> => {
   const articles = await Promise.all([
