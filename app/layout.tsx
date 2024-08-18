@@ -12,6 +12,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import Footer from '@/components/Footer';
 import Logo from '@/components/Logo';
+import SocialLinks from '@/components/SocialLinks';
 import config from '@/config';
 import theme from './theme';
 
@@ -40,8 +41,15 @@ const RootLayout: FC<RootLayoutProps> = ({
           <CssBaseline enableColorScheme />
           <Container maxWidth="lg">
             <AppBar position="static" elevation={0}>
-              <Toolbar disableGutters>
+              <Toolbar
+                disableGutters
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
+              >
                 <Logo />
+                <SocialLinks />
               </Toolbar>
             </AppBar>
             {children}
