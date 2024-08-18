@@ -9,7 +9,7 @@ import Twitter from '@/icons/Twitter';
 import { fetchData } from '@/lib/data';
 import classes from './page.module.css';
 
-export default async function Home() {
+const HomePage = async () => {
   const { articles, repositories } = await fetchData();
   return (
     <main>
@@ -55,4 +55,6 @@ export default async function Home() {
       </footer>
     </main>
   );
-}
+};
+
+export default HomePage

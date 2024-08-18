@@ -1,7 +1,7 @@
 import React from 'react';
 import './globals.css';
 import Script from 'next/script';
-import type { Metadata } from 'next';
+import type {Metadata, Viewport} from 'next';
 
 export const metadata: Metadata = {
   title: 'Alfredo Salzillo',
@@ -11,8 +11,12 @@ export const metadata: Metadata = {
       name: 'Alfredo Salzillo',
     },
   ],
-  viewport: 'width=device-width, initial-scale=1.0',
 };
+
+export const viewport: Viewport = {
+  initialScale: 1.0,
+  width: 'device-width',
+}
 
 export default function RootLayout({
   children,
