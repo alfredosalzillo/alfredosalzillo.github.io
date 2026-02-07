@@ -2,7 +2,6 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ArticlePreviewCard from "@/components/ArticlePreviewCard";
-import ProfileCard from "@/components/ProfileCard";
 import RepositoryPreviewCard from "@/components/RepositoryPreviewCard";
 import { fetchData } from "@/lib/data";
 
@@ -11,7 +10,6 @@ const HomePage = async () => {
   return (
     <main>
       <Stack spacing={1}>
-        <ProfileCard />
         <Container disableGutters>
           <Typography variant="h2" mt={2} mb={3}>
             Articles
