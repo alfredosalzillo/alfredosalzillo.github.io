@@ -4,7 +4,6 @@ import Stack from "@mui/material/Stack";
 import Dev from "@/icons/Dev";
 import Github from "@/icons/Github";
 import Linkedin from "@/icons/Linkedin";
-import Twitter from "@/icons/Twitter";
 
 const SocialLinks = () => (
   <Stack direction="row" gap={1}>
@@ -15,15 +14,6 @@ const SocialLinks = () => (
     >
       <Icon fontSize="small">
         <Linkedin />
-      </Icon>
-    </Link>
-    <Link
-      href="https://twitter.com/noctislupo93"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <Icon fontSize="small">
-        <Twitter />
       </Icon>
     </Link>
     <Link
