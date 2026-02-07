@@ -1,12 +1,11 @@
 import type { FC } from "react";
 import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import "./globals.css";
 import { ThemeProvider } from "@mui/material";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import theme from "./theme";
 import config from "@/config";
 
