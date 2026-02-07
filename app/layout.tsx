@@ -11,7 +11,6 @@ import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import theme from "./theme";
-import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 import SocialLinks from "@/components/SocialLinks";
 import config from "@/config";
@@ -28,31 +27,18 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-type RootLayoutProps = {
-  children: React.ReactNode;
-};
-const RootLayout: FC<RootLayoutProps> = ({ children }) => (
+type RootLayoutProps = LayoutProps<'/'>;
+const RootLayout: FC<RootLayoutProps> = ({ header, footer, children }) => (
   <html lang="en">
     <body>
       <AppRouterCacheProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline enableColorScheme />
           <Container maxWidth="lg">
-            <AppBar position="static" elevation={0}>
-              <Toolbar
-                disableGutters
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Logo />
-                <SocialLinks />
-              </Toolbar>
-            </AppBar>
+            {header}
             {children}
             <Divider sx={{ mt: 4 }} />
-            <Footer />
+            {footer}
           </Container>
         </ThemeProvider>
       </AppRouterCacheProvider>
