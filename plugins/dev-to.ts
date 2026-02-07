@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: allowed for dev-to api */
 export type User = {
   name: string;
   username: string;
@@ -6,10 +7,10 @@ export type User = {
   website_url: string;
   profile_image: string;
   profile_image_90: string;
-}
+};
 
 export type Article = {
-  type_of: 'article';
+  type_of: "article";
   id: number;
   title: string;
   description: string;
@@ -32,9 +33,9 @@ export type Article = {
   body_html: string;
   body_markdown: string;
   user: User;
-}
+};
 export type ArticleSummary = {
-  type_of: 'article';
+  type_of: "article";
   id: number;
   title: string;
   description: string;
@@ -49,7 +50,9 @@ export type ArticleSummary = {
   positive_reactions_count: number;
   published_timestamp: string;
   user: User;
-}
+};
 
-export const fetchArticle = (username: string, slug: string) => fetch(`https://dev.to/api/articles/${username}/${slug}`)
-  .then((response) => response.json()) as Promise<ArticleSummary>;
+export const fetchArticle = (username: string, slug: string) =>
+  fetch(`https://dev.to/api/articles/${username}/${slug}`).then((response) =>
+    response.json(),
+  ) as Promise<ArticleSummary>;

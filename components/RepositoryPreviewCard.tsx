@@ -1,28 +1,27 @@
-import type { FC } from 'react';
-import React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Chip from '@mui/material/Chip';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import type { FC } from "react";
+import Avatar from "@mui/material/Avatar";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Chip from "@mui/material/Chip";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
 type Language = {
-  name: string,
-  color: string,
+  name: string;
+  color: string;
 };
 type RepositoryPreviewCardProps = {
-  icon: string,
-  name: string,
-  href: string,
-  description: string,
+  icon: string;
+  name: string;
+  href: string;
+  description: string;
   owner: {
-    name: string,
-    href: string,
-  },
-  languages: Language[],
+    name: string;
+    href: string;
+  };
+  languages: Language[];
 };
 const RepositoryPreviewCard: FC<RepositoryPreviewCardProps> = ({
   icon,

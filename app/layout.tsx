@@ -1,20 +1,20 @@
-import type { FC } from 'react';
-import React from 'react';
-import Script from 'next/script';
-import type { Metadata, Viewport } from 'next';
-import './globals.css';
-import AppBar from '@mui/material/AppBar';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import Toolbar from '@mui/material/Toolbar';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import Footer from '@/components/Footer';
-import Logo from '@/components/Logo';
-import SocialLinks from '@/components/SocialLinks';
-import config from '@/config';
-import theme from './theme';
+import type React from "react";
+import type { FC } from "react";
+import type { Metadata, Viewport } from "next";
+import Script from "next/script";
+import "./globals.css";
+import AppBar from "@mui/material/AppBar";
+import Container from "@mui/material/Container";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import Toolbar from "@mui/material/Toolbar";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import theme from "./theme";
+import Footer from "@/components/Footer";
+import Logo from "@/components/Logo";
+import SocialLinks from "@/components/SocialLinks";
+import config from "@/config";
 
 export const metadata: Metadata = {
   title: config.siteName,
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  width: 'device-width',
-  height: 'device-height',
+  width: "device-width",
+  height: "device-height",
   initialScale: 1.0,
   userScalable: true,
 };
@@ -31,9 +31,7 @@ export const viewport: Viewport = {
 type RootLayoutProps = {
   children: React.ReactNode;
 };
-const RootLayout: FC<RootLayoutProps> = ({
-  children,
-}) => (
+const RootLayout: FC<RootLayoutProps> = ({ children }) => (
   <html lang="en">
     <body>
       <AppRouterCacheProvider>
@@ -44,8 +42,8 @@ const RootLayout: FC<RootLayoutProps> = ({
               <Toolbar
                 disableGutters
                 sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
+                  display: "flex",
+                  justifyContent: "space-between",
                 }}
               >
                 <Logo />
@@ -58,7 +56,11 @@ const RootLayout: FC<RootLayoutProps> = ({
           </Container>
         </ThemeProvider>
       </AppRouterCacheProvider>
-      <Script id="gtm-script" async src="https://www.googletagmanager.com/gtag/js?id=G-QZ1DYNJ6KE" />
+      <Script
+        id="gtm-script"
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-QZ1DYNJ6KE"
+      />
       <Script id="gtm-init">
         {/* language=javascript */}
         {`

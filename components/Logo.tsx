@@ -1,7 +1,6 @@
-import React from 'react';
-import NextLink from 'next/link';
-import Typography from '@mui/material/Typography';
-import config from '@/config';
+import NextLink from "next/link";
+import Typography from "@mui/material/Typography";
+import config from "@/config";
 
 const Logo = () => (
   <Typography
@@ -11,13 +10,13 @@ const Logo = () => (
     href="/"
     sx={{
       mr: 0,
-      display: 'flex',
-      fontFamily: 'monospace',
+      display: "flex",
+      fontFamily: "monospace",
       fontWeight: 700,
-      letterSpacing: '.2rem',
-      color: 'inherit',
-      textDecoration: 'none',
-      textTransform: 'uppercase',
+      letterSpacing: ".2rem",
+      color: "inherit",
+      textDecoration: "none",
+      textTransform: "uppercase",
     }}
   >
     {config.siteName}
