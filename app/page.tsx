@@ -3,10 +3,16 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ArticlePreviewCard from "@/components/ArticlePreviewCard";
 import RepositoryPreviewCard from "@/components/RepositoryPreviewCard";
-import { fetchData } from "@/lib/data";
+import config from "@/config";
+import { fetchArticleData } from "@/plugins/dev-to/fetchArticleData";
+import { fetchPinnedRepositoryData } from "@/plugins/github/fetchPinnedRepositoryData";
 
+const fetchArticles = async () => {
+  return Promise.all(config.articles.map(fetchArticleData));
+};
 const HomePage = async () => {
-  const { articles, repositories } = await fetchData();
+  const repositories = await fetchPinnedRepositoryData();
+  const articles = await fetchArticles();
   return (
     <main>
       <Stack spacing={1}>
