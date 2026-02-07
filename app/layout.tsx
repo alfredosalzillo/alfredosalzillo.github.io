@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import theme from "./theme";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
