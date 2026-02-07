@@ -1,20 +1,19 @@
 import {
   ApolloClient,
-  createHttpLink,
-  from,
+  ApolloLink,
+  HttpLink,
   InMemoryCache,
 } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
+import { SetContextLink } from "@apollo/client/link/context";
 import schema from "@/@types/github";
 
-const httpLink = createHttpLink({
+const httpLink = new HttpLink({
   uri: "https://api.github.com/graphql",
 });
 
-const authLink = setContext(async (_, previous) => {
+const authLink = new SetContextLink(async (_) => {
   return {
     headers: {
-      ...previous.headers,
       Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     },
   };
@@ -25,5 +24,5 @@ export const githubClient = new ApolloClient({
   cache: new InMemoryCache({
     possibleTypes: schema.possibleTypes,
   }),
-  link: from([authLink, httpLink]),
+  link: ApolloLink.from([authLink, httpLink]),
 });
