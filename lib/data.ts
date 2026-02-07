@@ -29,9 +29,7 @@ type Repository = {
   }>;
 };
 const fetchGithubPinnedRepositoryData = async (): Promise<Repository[]> => {
-  const {
-    data,
-  } = await githubClient.query<
+  const { data } = await githubClient.query<
     AllPinnedRepositoriesQuery,
     AllPinnedRepositoriesQueryVariables
   >({

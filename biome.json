@@ -13,7 +13,8 @@
       "!.next",
       "!dist",
       "!build",
-      "!@types/github.ts"
+      "!@types/github.ts",
+      "!schema.graphql"
     ]
   },
   "formatter": {

@@ -31,12 +31,12 @@ const config: CodegenConfig = {
         maybeValue: "T",
       },
     },
-    './schema.graphql': {
-      plugins: ['schema-ast'],
+    "./schema.graphql": {
+      plugins: ["schema-ast"],
       config: {
-        includeDirectives: true
-      }
-    }
+        includeDirectives: true,
+      },
+    },
   },
 };
 

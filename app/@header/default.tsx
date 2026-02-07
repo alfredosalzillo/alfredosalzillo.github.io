@@ -17,7 +17,7 @@ const Header = () => {
         <SocialLinks />
       </Toolbar>
     </AppBar>
-  )
-}
+  );
+};
 
 export default Header;

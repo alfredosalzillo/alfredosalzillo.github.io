@@ -1,18 +1,13 @@
-import type React from "react";
 import type { FC } from "react";
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { ThemeProvider } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
-import Toolbar from "@mui/material/Toolbar";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import theme from "./theme";
-import Logo from "@/components/Logo";
-import SocialLinks from "@/components/SocialLinks";
 import config from "@/config";
 
 export const metadata: Metadata = {
@@ -27,7 +22,7 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-type RootLayoutProps = LayoutProps<'/'>;
+type RootLayoutProps = LayoutProps<"/">;
 const RootLayout: FC<RootLayoutProps> = ({ header, footer, children }) => (
   <html lang="en">
     <body>
