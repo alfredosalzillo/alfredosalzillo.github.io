@@ -30,11 +30,7 @@ type Repository = {
 };
 const fetchGithubPinnedRepositoryData = async (): Promise<Repository[]> => {
   const {
-    data: {
-      user: {
-        pinnedItems: { nodes },
-      },
-    },
+    data,
   } = await githubClient.query<
     AllPinnedRepositoriesQuery,
     AllPinnedRepositoriesQueryVariables
@@ -44,7 +40,10 @@ const fetchGithubPinnedRepositoryData = async (): Promise<Repository[]> => {
       owner: "alfredosalzillo",
     },
   });
-  return nodes.filter(isRepository).map((repository) => ({
+  if (!data?.user?.pinnedItems?.nodes) {
+    return [];
+  }
+  return data.user.pinnedItems.nodes.filter(isRepository).map((repository) => ({
     icon: "/assets/icons/github_badge.svg",
     url: repository.url,
     name: repository.name,
