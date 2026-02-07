@@ -1,3 +1,5 @@
+"use client";
+
 import NextLink from "next/link";
 import Typography from "@mui/material/Typography";
 import config from "@/config";

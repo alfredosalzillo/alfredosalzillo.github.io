@@ -1,13 +1,13 @@
 import type React from "react";
 import type { FC } from "react";
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+import { ThemeProvider } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
-import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import Toolbar from "@mui/material/Toolbar";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import theme from "./theme";
@@ -56,25 +56,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
           </Container>
         </ThemeProvider>
       </AppRouterCacheProvider>
-      <Script
-        id="gtm-script"
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-QZ1DYNJ6KE"
-      />
-      <Script id="gtm-init">
-        {/* language=javascript */}
-        {`
-          window.dataLayer = window.dataLayer || [];
-    
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-    
-          gtag('js', new Date());
-    
-          gtag('config', 'G-QZ1DYNJ6KE');
-        `}
-      </Script>
+      <GoogleAnalytics gaId="G-QZ1DYNJ6KE" />
     </body>
   </html>
 );
