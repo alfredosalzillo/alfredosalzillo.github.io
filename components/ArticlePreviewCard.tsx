@@ -14,7 +14,7 @@ import { alpha, lighten } from "@mui/material/styles";
 type ArticlePreviewCardProps = {
   icon: string;
   title: string;
-  cover?: string;
+  cover?: string | null;
   href: string;
   description: string;
 };
