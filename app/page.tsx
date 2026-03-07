@@ -1,11 +1,39 @@
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import RepositoryPreviewCard from "@/components/RepositoryPreviewCard";
-import { fetchPinnedRepositoryData } from "@/plugins/github/fetchPinnedRepositoryData";
+import RepositoryPreviewCard, {
+  RepositoryPreviewCardFragment,
+} from "@/components/RepositoryPreviewCard";
+import { githubClient } from "@/plugins/github/github";
+import { graphql } from "@/plugins/graphq";
+
+const HomeQuery = graphql(
+  `
+    query AllPinnedRepositories($owner: String!) {
+        user(login: $owner) {
+            pinnedItems(first: 10) {
+                nodes {
+                    __typename
+                    ... on Node {
+                        id
+                    }
+                    ...RepositoryPreviewCard
+                }
+            }
+        }
+    }
+`,
+  [RepositoryPreviewCardFragment],
+);
 
 const HomePage = async () => {
-  const repositories = await fetchPinnedRepositoryData();
+  const { data } = await githubClient.query({
+    query: HomeQuery,
+    variables: {
+      owner: "alfredosalzillo",
+    },
+  });
+  const repositories = data?.user?.pinnedItems?.nodes ?? [];
   return (
     <main>
       <Stack spacing={1}>
@@ -14,9 +42,15 @@ const HomePage = async () => {
             Projects
           </Typography>
           <Stack spacing={1}>
-            {repositories.map((repository) => (
-              <RepositoryPreviewCard key={repository.url} {...repository} />
-            ))}
+            {repositories
+              .filter((repository) => !!repository)
+              .filter((repository) => repository.__typename === "Repository")
+              .map((repository) => (
+                <RepositoryPreviewCard
+                  key={repository.id}
+                  repository={repository}
+                />
+              ))}
           </Stack>
         </Container>
       </Stack>

@@ -7,59 +7,71 @@ import Chip from "@mui/material/Chip";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import type { FragmentOf } from "gql.tada";
+import { graphql, readFragment } from "@/plugins/graphq";
 
-type Language = {
-  name: string;
-  color: string;
-};
+export const RepositoryPreviewCardFragment = graphql(`
+    fragment RepositoryPreviewCard on Repository {
+        name
+        description
+        url
+        owner {
+            login
+            avatarUrl
+            url
+        }
+        languages(first: 10) {
+            nodes {
+                name
+                color
+            }
+        }
+    }
+`);
+
 type RepositoryPreviewCardProps = {
-  icon: string;
-  name: string;
-  href: string;
-  description: string;
-  owner: {
-    name: string;
-    href: string;
-  };
-  languages: Language[];
+  repository: FragmentOf<typeof RepositoryPreviewCardFragment>;
 };
 const RepositoryPreviewCard: FC<RepositoryPreviewCardProps> = ({
-  icon,
-  name,
-  href,
-  owner,
-  description,
-  languages = [],
-}) => (
-  <Card component="article" variant="outlined">
-    <CardContent>
-      <Breadcrumbs>
-        <Avatar src={icon} sx={{ width: 24, height: 24 }} />
-        <Link href={owner.href} target="_blank" rel="noreferrer">
-          {owner.name}
-        </Link>
-        <Link href={href} target="_blank" rel="noreferrer">
-          {name}
-        </Link>
-      </Breadcrumbs>
-      <Typography paragraph mt={2}>
-        {description}
-      </Typography>
-      <Stack direction="row" spacing={1}>
-        {languages.map((language) => (
-          <Chip
-            key={language.name}
-            label={language.name}
-            sx={{
-              color: language.color,
-            }}
-            size="small"
-            variant="outlined"
+  repository,
+}) => {
+  const data = readFragment(RepositoryPreviewCardFragment, repository);
+  return (
+    <Card component="article" variant="outlined">
+      <CardContent>
+        <Breadcrumbs>
+          <Avatar
+            src="/assets/icons/github_badge.svg"
+            sx={{ width: 24, height: 24 }}
           />
-        ))}
-      </Stack>
-    </CardContent>
-  </Card>
-);
+          <Link href={data.owner.url} target="_blank" rel="noreferrer">
+            {data.owner.login}
+          </Link>
+          <Link href={data.url} target="_blank" rel="noreferrer">
+            {data.name}
+          </Link>
+        </Breadcrumbs>
+        <Typography paragraph mt={2}>
+          {data.description}
+        </Typography>
+        <Stack direction="row" spacing={1}>
+          {data.languages?.nodes
+            ?.filter((language) => !!language)
+            ?.map((language) => (
+              <Chip
+                key={language.name}
+                label={language.name}
+                sx={{
+                  color: language.color,
+                }}
+                size="small"
+                variant="outlined"
+              />
+            ))}
+        </Stack>
+      </CardContent>
+    </Card>
+  );
+};
 
 export default RepositoryPreviewCard;
