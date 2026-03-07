@@ -15,22 +15,6 @@ const config: CodegenConfig = {
     },
   ],
   generates: {
-    "./@types/github.ts": {
-      documents: ["./**/*.github.graphql"],
-      plugins: [
-        "typescript",
-        "typescript-operations",
-        "typed-document-node",
-        "fragment-matcher",
-      ],
-      config: {
-        avoidOptionals: {
-          field: true,
-          defaultValue: true,
-        },
-        maybeValue: "T",
-      },
-    },
     "./schema.graphql": {
       plugins: ["schema-ast"],
       config: {

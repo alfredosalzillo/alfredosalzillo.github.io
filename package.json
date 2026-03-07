@@ -10,10 +10,10 @@
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "generate": "graphql-codegen --config ./codegen.ts",
-    "generate:favicon": "npx png-to-ico app/logo.png > app/favicon.ico"
+    "generate:tada": "gql.tada generate-output -o graphql-env.d.ts"
   },
   "dependencies": {
-    "@apollo/client": "^4.1.4",
+    "@apollo/client": "^4.1.6",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -24,20 +24,15 @@
     "@types/node": "^25.2.1",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
-    "graphql": "^16.12.0",
-    "graphql-tag": "^2.12.6",
+    "gql.tada": "^1.9.0",
     "next": "^16.1.6",
-    "openapi-fetch": "^0.15.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
+    "@0no-co/graphqlsp": "^1.15.2",
     "@biomejs/biome": "2.3.14",
     "@graphql-codegen/cli": "^6.1.1",
-    "@graphql-codegen/fragment-matcher": "^6.0.0",
-    "@graphql-codegen/typed-document-node": "^6.1.5",
-    "@graphql-codegen/typescript": "^5.0.7",
-    "@graphql-codegen/typescript-operations": "^5.0.7",
     "typescript": "^5.9.3"
   },
   "volta": {

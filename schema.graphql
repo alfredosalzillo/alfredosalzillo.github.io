@@ -1809,7 +1809,9 @@ type CheckAnnotation {
   """The path to the file that this annotation was made on."""
   blobUrl: URI!
   """Identifies the primary key from the database."""
-  databaseId: Int
+  databaseId: Int @deprecated(reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2027-01-01 UTC.")
+  """Identifies the primary key from the database as a BigInt."""
+  fullDatabaseId: BigInt
   """The position of this annotation."""
   location: CheckAnnotationSpan!
   """The annotation's message."""
@@ -4536,6 +4538,8 @@ input CreateRepositoryCustomPropertyInput {
   The regex pattern that the value of the custom property must match, if the `value_type` is `string`.
   """
   regex: String
+  """Whether this repository custom property requires explicit values."""
+  requireExplicitValues: Boolean
   """Whether the custom property is required."""
   required: Boolean
   """
@@ -10830,6 +10834,10 @@ enum IssueTimelineItemsItemType {
   DISCONNECTED_EVENT
   """Represents a comment on an Issue."""
   ISSUE_COMMENT
+  """Represents a 'issue_comment_pinned' event on a given issue."""
+  ISSUE_COMMENT_PINNED_EVENT
+  """Represents a 'issue_comment_unpinned' event on a given issue."""
+  ISSUE_COMMENT_UNPINNED_EVENT
   """Represents a 'issue_field_added' event on a given issue."""
   ISSUE_FIELD_ADDED_EVENT
   """Represents a 'issue_field_changed' event on a given issue."""
@@ -20418,6 +20426,14 @@ type PullRequestContributionsByRepository {
   repository: Repository!
 }
 
+"""The policy controlling who can create pull requests in a repository."""
+enum PullRequestCreationPolicy {
+  """Anyone can create pull requests."""
+  ALL
+  """Only collaborators can create pull requests."""
+  COLLABORATORS_ONLY
+}
+
 """An edge in a connection."""
 type PullRequestEdge {
   """A cursor for use in pagination."""
@@ -21219,6 +21235,10 @@ enum PullRequestTimelineItemsItemType {
   HEAD_REF_RESTORED_EVENT
   """Represents a comment on an Issue."""
   ISSUE_COMMENT
+  """Represents a 'issue_comment_pinned' event on a given issue."""
+  ISSUE_COMMENT_PINNED_EVENT
+  """Represents a 'issue_comment_unpinned' event on a given issue."""
+  ISSUE_COMMENT_UNPINNED_EVENT
   """Represents a 'issue_field_added' event on a given issue."""
   ISSUE_FIELD_ADDED_EVENT
   """Represents a 'issue_field_changed' event on a given issue."""
@@ -24134,6 +24154,8 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   hasIssuesEnabled: Boolean!
   """Indicates if the repository has the Projects feature enabled."""
   hasProjectsEnabled: Boolean!
+  """Indicates if the repository has the pull requests feature enabled."""
+  hasPullRequestsEnabled: Boolean!
   """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
@@ -24150,7 +24172,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   interactionAbility: RepositoryInteractionAbility
   """Indicates if the repository is unmaintained."""
   isArchived: Boolean!
-  """Returns true if blank issue creation is allowed"""
+  """Returns true if the viewer can create a blank issue in this repository"""
   isBlankIssuesEnabled: Boolean!
   """Returns whether or not this repository disabled."""
   isDisabled: Boolean!
@@ -24480,6 +24502,10 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """The number for the pull request to be returned."""
     number: Int!
   ): PullRequest
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
   """Returns a list of pull request templates associated to the repository"""
   pullRequestTemplates: [PullRequestTemplate!]
   """A list of pull requests that have been opened in the repository."""
@@ -24944,6 +24970,8 @@ type RepositoryCustomProperty implements Node {
   The regex pattern that the value of the custom property must match, if the `value_type` is `string`.
   """
   regex: String
+  """Whether this repository custom property requires explicit values."""
+  requireExplicitValues: Boolean
   """Whether the custom property is required."""
   required: Boolean
   """The source type of the custom property."""
@@ -25100,6 +25128,8 @@ interface RepositoryInfo {
   hasIssuesEnabled: Boolean!
   """Indicates if the repository has the Projects feature enabled."""
   hasProjectsEnabled: Boolean!
+  """Indicates if the repository has the pull requests feature enabled."""
+  hasPullRequestsEnabled: Boolean!
   """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
@@ -25140,6 +25170,10 @@ interface RepositoryInfo {
   openGraphImageUrl: URI!
   """The User owner of the repository."""
   owner: RepositoryOwner!
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
   """Identifies the date and time when the repository was last pushed to."""
   pushedAt: DateTime
   """The HTTP path for this repository"""
@@ -29543,13 +29577,13 @@ type Team implements MemberStatusable & Node & Subscribable {
   """Team is adminable by the viewer."""
   viewerCanAdminister: Boolean!
   """
-  Check if the viewer is able to change their subscription status for the repository.
+  Check if the viewer is able to change their subscription status for the subscribable entity.
   """
-  viewerCanSubscribe: Boolean!
+  viewerCanSubscribe: Boolean! @deprecated(reason: "`Team.viewerCanSubscribe` will be removed. Team notifications subscriptions are being deprecated. Removal on 2026-07-01 UTC.")
   """
   Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   """
-  viewerSubscription: SubscriptionState
+  viewerSubscription: SubscriptionState @deprecated(reason: "`Team.viewerSubscription` will be removed. Team notifications subscriptions are being deprecated. Removal on 2026-07-01 UTC.")
 }
 
 """Audit log entry for a team.add_member event."""
@@ -32183,6 +32217,8 @@ input UpdateRepositoryCustomPropertyInput {
   regex: String
   """The global relay id of the source of the custom property."""
   repositoryCustomPropertyId: ID!
+  """Whether this repository custom property requires explicit values."""
+  requireExplicitValues: Boolean
   """Whether the updated custom property is required."""
   required: Boolean
   """The updated actors who can edit the values of the custom property."""
@@ -32216,6 +32252,10 @@ input UpdateRepositoryInput {
   """
   hasProjectsEnabled: Boolean
   """
+  Indicates if the repository should have the pull requests feature enabled.
+  """
+  hasPullRequestsEnabled: Boolean
+  """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
   hasSponsorshipsEnabled: Boolean
@@ -32227,6 +32267,10 @@ input UpdateRepositoryInput {
   homepageUrl: URI
   """The new name of the repository."""
   name: String
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
   """The ID of the repository to update."""
   repositoryId: ID!
   """
@@ -34006,4 +34050,4 @@ scalar X509Certificate
 
 scalar _Any
 
-union _Entity = Issue | Repository
+union _Entity = AddedToMergeQueueEvent | AddedToProjectEvent | AddedToProjectV2Event | App | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | Blob | BlockedByAddedEvent | BlockedByRemovedEvent | BlockingAddedEvent | BlockingRemovedEvent | Bot | BranchProtectionRule | BypassForcePushAllowance | BypassPullRequestAllowance | CWE | CheckRun | CheckSuite | ClosedEvent | CodeOfConduct | CommentDeletedEvent | Commit | CommitComment | CommitCommentThread | Comparison | ConnectedEvent | ConvertToDraftEvent | ConvertedFromDraftEvent | ConvertedNoteToIssueEvent | ConvertedToDiscussionEvent | CrossReferencedEvent | DemilestonedEvent | DependencyGraphManifest | DeployKey | DeployedEvent | Deployment | DeploymentEnvironmentChangedEvent | DeploymentReview | DeploymentStatus | DisconnectedEvent | Discussion | DiscussionCategory | DiscussionComment | DiscussionPoll | DiscussionPollOption | DraftIssue | Enterprise | EnterpriseAdministratorInvitation | EnterpriseIdentityProvider | EnterpriseMemberInvitation | EnterpriseRepositoryInfo | EnterpriseServerInstallation | EnterpriseServerUserAccount | EnterpriseServerUserAccountEmail | EnterpriseServerUserAccountsUpload | EnterpriseUserAccount | Environment | ExternalIdentity | Gist | GistComment | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IpAllowListEntry | Issue | IssueComment | IssueType | IssueTypeAddedEvent | IssueTypeChangedEvent | IssueTypeRemovedEvent | Label | LabeledEvent | Language | License | LinkedBranch | LockedEvent | Mannequin | MarkedAsDuplicateEvent | MarketplaceCategory | MarketplaceListing | MemberFeatureRequestNotification | MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | MentionedEvent | MergeQueue | MergeQueueEntry | MergedEvent | MigrationSource | Milestone | MilestonedEvent | MovedColumnsInProjectEvent | OIDCProvider | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessBlockedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgOauthAppAccessUnblockedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | Organization | OrganizationIdentityProvider | OrganizationInvitation | Package | PackageFile | PackageTag | PackageVersion | ParentIssueAddedEvent | ParentIssueRemovedEvent | PinnedDiscussion | PinnedEnvironment | PinnedEvent | PinnedIssue | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | Project | ProjectCard | ProjectColumn | ProjectV2 | ProjectV2Field | ProjectV2Item | ProjectV2ItemFieldDateValue | ProjectV2ItemFieldIterationValue | ProjectV2ItemFieldNumberValue | ProjectV2ItemFieldSingleSelectValue | ProjectV2ItemFieldTextValue | ProjectV2ItemStatusChangedEvent | ProjectV2IterationField | ProjectV2SingleSelectField | ProjectV2StatusUpdate | ProjectV2View | ProjectV2Workflow | PublicKey | PullRequest | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | PullRequestThread | Push | PushAllowance | Query | Reaction | ReadyForReviewEvent | Ref | ReferencedEvent | Release | ReleaseAsset | RemovedFromMergeQueueEvent | RemovedFromProjectEvent | RemovedFromProjectV2Event | RenamedTitleEvent | ReopenedEvent | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | Repository | RepositoryCustomProperty | RepositoryInvitation | RepositoryMigration | RepositoryRule | RepositoryRuleset | RepositoryRulesetBypassActor | RepositoryTopic | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | RepositoryVulnerabilityAlert | ReviewDismissalAllowance | ReviewDismissedEvent | ReviewRequest | ReviewRequestRemovedEvent | ReviewRequestedEvent | SavedReply | SecurityAdvisory | SponsorsActivity | SponsorsListing | SponsorsListingFeaturedItem | SponsorsTier | Sponsorship | SponsorshipNewsletter | Status | StatusCheckRollup | StatusContext | SubIssueAddedEvent | SubIssueRemovedEvent | SubscribedEvent | Team | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry | Topic | TransferredEvent | Tree | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | User | UserBlockedEvent | UserContentEdit | UserList | UserNamespaceRepository | UserStatus | VerifiableDomain | Workflow | WorkflowRun | WorkflowRunFile

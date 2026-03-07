@@ -14,7 +14,8 @@
       "!dist",
       "!build",
       "!@types/github.ts",
-      "!schema.graphql"
+      "!schema.graphql",
+      "graphql-env.d.ts"
     ]
   },
   "formatter": {
