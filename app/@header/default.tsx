@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Logo from "@/components/Logo";
-import DevIcon from "@/icons/Dev";
 
 const Header = () => {
   return (
@@ -47,14 +46,6 @@ const Header = () => {
             rel="noreferrer"
           >
             <GitHubIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            component={NextLink}
-            href="https://dev.to/alfredosalzillo"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <DevIcon fontSize="small" />
           </IconButton>
         </Stack>
       </Toolbar>

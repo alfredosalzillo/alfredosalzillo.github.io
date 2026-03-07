@@ -10,8 +10,7 @@
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "generate": "graphql-codegen --config ./codegen.ts",
-    "generate:favicon": "npx png-to-ico app/logo.png > app/favicon.ico",
-    "generate:dev-to": "npx openapi-typescript plugins/dev-to/openapi-v1.yaml -o plugins/dev-to/schema-v1.ts"
+    "generate:favicon": "npx png-to-ico app/logo.png > app/favicon.ico"
   },
   "dependencies": {
     "@apollo/client": "^4.1.4",

@@ -8,7 +8,7 @@ This is my personal website, built with modern web technologies and hosted on Gi
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **UI Library:** [Material UI (MUI)](https://mui.com/)
 - **Linter/Formatter:** [Biome](https://biomejs.dev/)
-- **API Integrations:** [Dev.to](https://dev.to/) (Articles) & [GitHub](https://github.com/) (Projects)
+- **API Integrations:** [GitHub](https://github.com/) (Projects)
 
 ## 🛠️ Getting Started
 
@@ -47,12 +47,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `npm run lint:fix`: Automatically fixes linting issues.
 - `npm run format`: Formats the code using Biome.
 - `npm run generate`: Generates GraphQL types.
-- `npm run generate:favicon`: Generates favicon from logo.
-- `npm run generate:dev-to`: Generates TypeScript types from Dev.to OpenAPI schema.
+ - `npm run generate:favicon`: Generates favicon from logo.
 
 ## ✨ Features
 
-- **Dynamic Content:** Fetches latest articles from Dev.to.
 - **Project Showcase:** Displays pinned GitHub repositories.
 - **Responsive Design:** Optimized for various screen sizes using MUI and Tailwind CSS.
 - **Type Safety:** Comprehensive TypeScript integration across the codebase.
