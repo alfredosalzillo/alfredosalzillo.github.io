@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import type { FC } from "react";
 import Link from "next/link";
 import GitHubIcon from "@mui/icons-material/GitHub";
