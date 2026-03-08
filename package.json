@@ -10,7 +10,7 @@
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "generate": "graphql-codegen --config ./codegen.ts",
-    "generate:tada": "gql.tada generate-output -o graphql-env.d.ts"
+    "generate:tada": "gql.tada generate-output -o plugins/github/graphql-env.d.ts"
   },
   "dependencies": {
     "@apollo/client": "^4.1.6",

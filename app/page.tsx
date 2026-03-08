@@ -1,12 +1,12 @@
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import DiscoverMoreCard from "@/components/DiscoverMoreCard";
+import DiscoverMoreCard from "@/plugins/github/DiscoverMoreCard";
+import { githubClient } from "@/plugins/github/github";
+import { graphql } from "@/plugins/github/graphq";
 import RepositoryPreviewCard, {
   RepositoryPreviewCardFragment,
-} from "@/components/RepositoryPreviewCard";
-import { githubClient } from "@/plugins/github/github";
-import { graphql } from "@/plugins/graphq";
+} from "@/plugins/github/RepositoryPreviewCard";
 
 const HomeQuery = graphql(
   `

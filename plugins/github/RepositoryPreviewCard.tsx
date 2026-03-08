@@ -9,7 +9,7 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import type { FragmentOf } from "gql.tada";
-import { graphql, readFragment } from "@/plugins/graphq";
+import { graphql, readFragment } from "@/plugins/github/graphq";
 
 export const RepositoryPreviewCardFragment = graphql(`
     fragment RepositoryPreviewCard on Repository {
