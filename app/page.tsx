@@ -1,6 +1,8 @@
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { generateBlob } from "@alfredo.salzillo/blobs";
+import { BlobsDeadOrAliveCard } from "@/plugins/blobs-dead-or-alive";
 import DiscoverMoreCard from "@/plugins/github/DiscoverMoreCard";
 import { githubClient } from "@/plugins/github/github";
 import { graphql } from "@/plugins/github/graphq";
@@ -41,6 +43,10 @@ const HomePage = async () => {
       <Stack spacing={1}>
         <Container disableGutters>
           <Typography variant="h2" mt={2} mb={3}>
+            Showcase
+          </Typography>
+          <BlobsDeadOrAliveCard initialBlob={generateBlob(800, 800)} />
+          <Typography variant="h2" mt={2} mb={3}>
             Projects
           </Typography>
           <Stack spacing={1}>
@@ -53,9 +59,7 @@ const HomePage = async () => {
                   repository={repository}
                 />
               ))}
-            {data?.user?.url && (
-              <DiscoverMoreCard url={data.user.url} />
-            )}
+            {data?.user?.url && <DiscoverMoreCard url={data.user.url} />}
           </Stack>
         </Container>
       </Stack>

@@ -41,9 +41,7 @@ const RepositoryPreviewCard: FC<RepositoryPreviewCardProps> = ({
     <Card component="article" variant="outlined">
       <CardContent>
         <Breadcrumbs>
-          <Avatar
-            sx={{ width: 24, height: 24 }}
-          >
+          <Avatar sx={{ width: 24, height: 24 }}>
             <GitHubIcon />
           </Avatar>
           <Link href={data.owner.url} target="_blank" rel="noreferrer">
