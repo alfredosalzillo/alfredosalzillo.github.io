@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import DiscoverMoreCard from "@/components/DiscoverMoreCard";
 import RepositoryPreviewCard, {
   RepositoryPreviewCardFragment,
 } from "@/components/RepositoryPreviewCard";
@@ -11,6 +12,7 @@ const HomeQuery = graphql(
   `
     query AllPinnedRepositories($owner: String!) {
         user(login: $owner) {
+            url
             pinnedItems(first: 10) {
                 nodes {
                     __typename
@@ -51,6 +53,9 @@ const HomePage = async () => {
                   repository={repository}
                 />
               ))}
+            {data?.user?.url && (
+              <DiscoverMoreCard url={data.user.url} />
+            )}
           </Stack>
         </Container>
       </Stack>
