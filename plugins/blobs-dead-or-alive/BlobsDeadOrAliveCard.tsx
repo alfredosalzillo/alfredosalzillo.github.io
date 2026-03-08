@@ -78,8 +78,8 @@ const BlobsDeadOrAliveCard: FC<BlobsDeadOrAliveCardProps> = ({
                 Blobs Dead or Alive
               </Typography>
               <Typography variant="body1" color="text.secondary">
-                A fun and interactive game featuring procedural blobs. Challenge
-                yourself to identify which blobs are "alive" and which are not!
+                The goal is simple: find the "Wanted" blob among a crowd of
+                similar-looking blobs before time runs out!
               </Typography>
               <CardActions sx={{ px: 0, justifyContent: "space-between" }}>
                 <Stack direction="row" spacing={1}>
