@@ -45,7 +45,7 @@ const HomePage = async () => {
           <Typography variant="h2" mt={2} mb={3}>
             Showcase
           </Typography>
-          <BlobsDeadOrAliveCard initialBlob={generateBlob(800, 800)} />
+          <BlobsDeadOrAliveCard initialBlob={generateBlob(100, 100)} />
           <Typography variant="h2" mt={2} mb={3}>
             Projects
           </Typography>
