@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import Avatar from "@mui/material/Avatar";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Card from "@mui/material/Card";
@@ -41,9 +42,10 @@ const RepositoryPreviewCard: FC<RepositoryPreviewCardProps> = ({
       <CardContent>
         <Breadcrumbs>
           <Avatar
-            src="/assets/icons/github_badge.svg"
             sx={{ width: 24, height: 24 }}
-          />
+          >
+            <GitHubIcon />
+          </Avatar>
           <Link href={data.owner.url} target="_blank" rel="noreferrer">
             {data.owner.login}
           </Link>
@@ -51,7 +53,7 @@ const RepositoryPreviewCard: FC<RepositoryPreviewCardProps> = ({
             {data.name}
           </Link>
         </Breadcrumbs>
-        <Typography paragraph mt={2}>
+        <Typography component="p" mt={2} mb={2}>
           {data.description}
         </Typography>
         <Stack direction="row" spacing={1}>
