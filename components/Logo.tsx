@@ -8,7 +8,7 @@ import logo from "@/app/logo.png";
 import config from "@/config";
 
 const Logo = () => (
-  <Box display="flex" alignItems="center">
+  <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
     <Box
       sx={{ display: "flex", alignItems: "center", borderRadius: 10, mr: 0 }}
     >

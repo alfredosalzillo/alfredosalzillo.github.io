@@ -21,7 +21,12 @@ const Header = () => {
         }}
       >
         <Logo />
-        <Stack direction="row" gap={0} alignItems="center">
+        <Stack
+          component="div"
+          direction="row"
+          spacing={0}
+          sx={{ alignItems: "center" }}
+        >
           <Button
             variant="text"
             component={NextLink}

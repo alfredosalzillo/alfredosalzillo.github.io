@@ -42,11 +42,11 @@ const HomePage = async () => {
     <main>
       <Stack spacing={1}>
         <Container disableGutters>
-          <Typography variant="h2" mt={2} mb={3}>
+          <Typography component="h2" variant="h2" sx={{ mt: 2, mb: 3 }}>
             Showcase
           </Typography>
           <BlobsDeadOrAliveCard initialBlob={generateBlob(100, 100)} />
-          <Typography variant="h2" mt={2} mb={3}>
+          <Typography component="h2" variant="h2" sx={{ mt: 2, mb: 3 }}>
             Projects
           </Typography>
           <Stack spacing={1}>

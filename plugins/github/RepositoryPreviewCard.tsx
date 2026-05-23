@@ -51,7 +51,7 @@ const RepositoryPreviewCard: FC<RepositoryPreviewCardProps> = ({
             {data.name}
           </Link>
         </Breadcrumbs>
-        <Typography component="p" mt={2} mb={2}>
+        <Typography component="p" sx={{ mt: 2, mb: 3 }}>
           {data.description}
         </Typography>
         <Stack direction="row" spacing={1}>

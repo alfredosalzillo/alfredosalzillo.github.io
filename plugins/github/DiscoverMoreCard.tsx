@@ -23,11 +23,10 @@ const DiscoverMoreCard: FC<DiscoverMoreCardProps> = ({ url }) => {
       >
         <CardContent>
           <Stack
+            component="div"
             direction="row"
             spacing={2}
-            alignItems="center"
-            justifyContent="center"
-            sx={{ py: 1 }}
+            sx={{ py: 1, alignItems: "center", justifyContent: "center" }}
           >
             <GitHubIcon fontSize="large" color="action" />
             <Typography variant="h6" color="text.secondary">

@@ -36,8 +36,14 @@ const BlobsDeadOrAliveCard: FC<BlobsDeadOrAliveCardProps> = ({
   return (
     <Card component="article" variant="outlined">
       <CardContent>
-        <Grid container spacing={2} alignItems="center">
+        <Grid
+          component="div"
+          container
+          spacing={2}
+          sx={{ alignItems: "center" }}
+        >
           <Grid
+            component="div"
             size={{ xs: 12, md: 4 }}
             sx={{
               position: "relative",
@@ -45,10 +51,11 @@ const BlobsDeadOrAliveCard: FC<BlobsDeadOrAliveCardProps> = ({
               width: "100%",
               maxWidth: "200px",
               margin: "0 auto",
+
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
           >
             <Image
               src={wantedPosterImg}
